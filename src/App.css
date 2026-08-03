@@ -1,0 +1,429 @@
+/* ============================================================
+   Ember & Oak — design tokens
+   Palette:
+     --charcoal   #1E1A16  page background (charred oak)
+     --surface    #2A241D  card / panel background on dark
+     --cream      #F4EEDD  light surface / primary text on dark
+     --ember      #C1502E  primary accent (lit ember)
+     --sage       #7C8B6F  secondary accent (herb/garden)
+     --gold       #C9A86A  tertiary accent / dividers
+   Type:
+     display: 'Fraunces' (serif, warm, a little irregular)
+     body:    'Work Sans'
+     mono:    'IBM Plex Mono' (prices, table data, timestamps)
+   ============================================================ */
+
+:root {
+  --charcoal: #1e1a16;
+  --surface: #2a241d;
+  --surface-2: #342c22;
+  --cream: #f4eedd;
+  --ember: #c1502e;
+  --ember-light: #e2764f;
+  --sage: #7c8b6f;
+  --gold: #c9a86a;
+  --line: rgba(244, 238, 221, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--charcoal);
+  color: var(--cream);
+  font-family: "Work Sans", -apple-system, sans-serif;
+  scroll-behavior: smooth;
+}
+
+.eo-app {
+  background: var(--charcoal);
+  min-height: 100vh;
+}
+
+.eo-display {
+  font-family: "Fraunces", serif;
+}
+
+.eo-mono {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.eo-eyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--ember-light);
+}
+
+/* Flame divider — the page's signature element: a hand-of-embers
+   rule instead of a generic straight line, used between every
+   major section. */
+.eo-ember-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto;
+  padding: 48px 0 40px;
+  max-width: 1120px;
+}
+.eo-ember-divider .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+}
+.eo-ember-divider svg {
+  color: var(--ember);
+  opacity: 0.85;
+}
+
+.eo-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eo-section-head {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.eo-section-title {
+  color: var(--cream) !important;
+  margin-top: 8px !important;
+}
+
+/* ---------- Navbar ---------- */
+.eo-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(30, 26, 22, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  padding: 0 24px !important;
+  height: 72px !important;
+  line-height: 72px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eo-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--cream);
+  font-size: 20px;
+  letter-spacing: 0.02em;
+}
+.eo-logo svg {
+  color: var(--ember);
+}
+
+.eo-nav-links {
+  display: flex;
+  gap: 32px;
+}
+.eo-nav-links a {
+  color: var(--cream);
+  opacity: 0.75;
+  font-size: 14.5px;
+  transition: opacity 0.2s, color 0.2s;
+}
+.eo-nav-links a:hover {
+  opacity: 1;
+  color: var(--ember-light);
+}
+
+/* ---------- Hero / Carousel ---------- */
+.eo-hero-slide {
+  position: relative;
+  height: 560px;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+}
+.eo-hero-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(30, 26, 22, 0.35) 0%,
+    rgba(30, 26, 22, 0.55) 55%,
+    rgba(30, 26, 22, 0.95) 100%
+  );
+}
+.eo-hero-copy {
+  position: relative;
+  z-index: 2;
+  padding: 0 48px 64px;
+  max-width: 640px;
+}
+.eo-hero-copy .eo-eyebrow {
+  color: var(--gold);
+}
+.eo-hero-copy h1 {
+  color: var(--cream) !important;
+  font-size: 46px !important;
+  line-height: 1.1 !important;
+  margin: 10px 0 14px !important;
+}
+.eo-hero-copy p {
+  color: rgba(244, 238, 221, 0.82);
+  font-size: 16px;
+  margin-bottom: 22px;
+}
+
+.eo-btn-ember {
+  background: var(--ember) !important;
+  border-color: var(--ember) !important;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+}
+.eo-btn-ember:hover {
+  background: var(--ember-light) !important;
+  border-color: var(--ember-light) !important;
+}
+
+.eo-btn-ghost {
+  background: transparent !important;
+  border-color: rgba(244, 238, 221, 0.4) !important;
+  color: var(--cream) !important;
+}
+.eo-btn-ghost:hover {
+  border-color: var(--cream) !important;
+  color: var(--cream) !important;
+}
+
+/* ---------- Menu ---------- */
+.eo-tag-filter {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.eo-menu-card {
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 10px !important;
+  overflow: hidden;
+  height: 100%;
+}
+.eo-menu-card .ant-card-cover img {
+  height: 190px;
+  object-fit: cover;
+}
+.eo-menu-card .ant-card-body {
+  padding: 18px 18px 16px !important;
+}
+.eo-dish-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+.eo-dish-name {
+  color: var(--cream) !important;
+  font-size: 17px !important;
+  margin: 0 !important;
+}
+.eo-dish-price {
+  color: var(--gold);
+  font-size: 16px;
+  white-space: nowrap;
+}
+.eo-dish-note {
+  color: rgba(244, 238, 221, 0.65) !important;
+  font-size: 13.5px !important;
+  margin: 6px 0 12px !important;
+}
+.eo-dish-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ---------- Reservation ---------- */
+.eo-reserve-wrap {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 40px;
+}
+.eo-reserve-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.eo-reserve-side .eo-display {
+  color: var(--cream);
+  font-size: 28px;
+  margin: 8px 0 12px;
+}
+.eo-reserve-side p {
+  color: rgba(244, 238, 221, 0.7);
+  font-size: 14.5px;
+}
+.eo-field-label {
+  color: rgba(244, 238, 221, 0.6);
+  font-size: 12.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ---------- Kitchen board (table) ---------- */
+.eo-board-wrap {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 8px 8px 4px;
+}
+
+/* ---------- Reviews ---------- */
+.eo-review-card {
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 10px !important;
+  height: 100%;
+}
+.eo-review-name {
+  color: var(--cream) !important;
+  margin: 0 !important;
+}
+.eo-review-date {
+  color: rgba(244, 238, 221, 0.45);
+  font-size: 12.5px;
+}
+.eo-review-text {
+  color: rgba(244, 238, 221, 0.78) !important;
+  font-size: 14px !important;
+}
+
+.eo-upload-panel {
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  padding: 28px;
+  text-align: center;
+}
+
+/* ---------- QR ---------- */
+.eo-qr-card {
+  background: linear-gradient(160deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 36px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.eo-qr-stamp {
+  background: var(--cream);
+  padding: 16px;
+  border-radius: 10px;
+}
+
+/* ---------- Footer ---------- */
+.eo-footer {
+  background: #16130f !important;
+  border-top: 1px solid var(--line);
+  padding: 48px 24px 28px !important;
+}
+.eo-footer-cols {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.eo-footer h4 {
+  color: var(--cream);
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.eo-footer p,
+.eo-footer a {
+  color: rgba(244, 238, 221, 0.6);
+  font-size: 14px;
+  line-height: 1.9;
+}
+.eo-social {
+  display: flex;
+  gap: 14px;
+  margin-top: 14px;
+}
+.eo-social a {
+  color: var(--cream);
+  opacity: 0.7;
+  font-size: 18px;
+}
+.eo-social a:hover {
+  opacity: 1;
+  color: var(--ember-light);
+}
+
+.eo-mobile-trigger {
+  display: none;
+}
+.eo-footer-bottom {
+  max-width: 1120px;
+  margin: 32px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: rgba(244, 238, 221, 0.4);
+  font-size: 12.5px;
+}
+
+/* ---------- Cart drawer ---------- */
+.eo-cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.eo-cart-empty {
+  text-align: center;
+  padding: 60px 0;
+  color: rgba(244, 238, 221, 0.5);
+}
+
+@media (max-width: 768px) {
+  .eo-nav-links {
+    display: none;
+  }
+  .eo-mobile-trigger {
+    display: inline-flex;
+  }
+  .eo-hero-slide {
+    height: 460px;
+  }
+  .eo-hero-copy h1 {
+    font-size: 32px !important;
+  }
+  .eo-reserve-wrap {
+    padding: 24px;
+  }
+  .eo-qr-card {
+    justify-content: center;
+    text-align: center;
+  }
+}
