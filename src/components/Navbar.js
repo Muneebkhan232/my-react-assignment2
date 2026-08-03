@@ -47,7 +47,6 @@ export default function Navbar({ cartCount, onOpenCart }) {
           />
         </Badge>
         <Button
-          className="eo-btn-ghost"
           shape="circle"
           icon={<HiOutlineMenu />}
           onClick={() => setMobileOpen(true)}
